@@ -25,21 +25,14 @@
 
 <br />
 
-<% @users.each do |user| %>
-  
-    <%= user.email %>
-
-    <% if voter.id == logged_in_id %>
-
-      <% if voter.vote.nil? %>
-      <%= link_to 'Vote', vote_now_path %><br />
-      <% else %>
-
-        <%= link_to 'See how you voted', voter %><br />
-      <% end %>
-      <% else %> <br>
-    <% end %>
-
+<b align = "left">Voters</b>
+<br />
+<% @voters.each do |voter| %>  
+  <%= voter.name %>
+  <br />
+  <% if voter.vote.nil? %>
+    <%= link_to 'Vote', vote_now_path %><br />
+  <% end %>
 <% end %>
 
 <br />
