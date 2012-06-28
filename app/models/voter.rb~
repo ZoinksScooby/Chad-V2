@@ -1,3 +1,12 @@
 class Voter < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :name,
+                  :id,
+                  :vote_attributes,
+                  :candidate_attributes
+  
+  has_one :vote, :dependent => :destroy
+  has_one :candidate, :through => :vote
+  has_one :candidate_id, :through => :vote
+    
+  accepts_nested_attributes_for :vote
 end

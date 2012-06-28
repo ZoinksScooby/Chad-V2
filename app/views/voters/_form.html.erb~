@@ -15,6 +15,25 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  
+  <br />
+  
+  <div class="field">
+        <%= f.fields_for :vote do |vote| %>
+
+        <% @candidates.each do | candidate | %>
+            
+            <%= vote.radio_button :candidate_id , candidate.id %>
+            <%= vote.label :candidate_id, candidate.name %>
+            <br>
+            
+            <% end %>
+
+        <% end %>
+  </div>
+  
+  <br />
+
   <div class="actions">
     <%= f.submit %>
   </div>

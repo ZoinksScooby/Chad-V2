@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
         <%= f.fields_for :vote do |vote| %>
 
         <% @candidates.each do | candidate | %>
@@ -24,11 +29,9 @@
 
         <% end %>
   </div>
+  
+  <br />
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

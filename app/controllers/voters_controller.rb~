@@ -10,9 +10,9 @@ class VotersController < ApplicationController
     @votes = Vote.all
     @candidates = Candidate.all
     
-    votecount = Vote.all.map {|vote| vote.candidate_id}
-    freq = votecount.inject(Hash.new(0)) { |h,v| h[v] += 1; h}
-    @winner = (votecount.sort_by { |v| freq[v]}.last).name
+    #votecount = Vote.all.map {|vote| vote.candidate_id}
+    #freq = votecount.inject(Hash.new(0)) { |h,v| h[v] += 1; h}
+    #@winner = (votecount.sort_by { |v| freq[v]}.last).name
 
     respond_to do |format|
       format.html # index.html.erb
