@@ -1,6 +1,6 @@
 class VotersController < ApplicationController
 
-  before_filter :authenticate_voter!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index]
 
   # GET /voters
   # GET /voters.json

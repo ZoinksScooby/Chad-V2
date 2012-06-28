@@ -22,16 +22,28 @@
 <% end %>
 
 </table>
-</p>
 
 <br />
 
-<!-- p>
-<%= @winner %> wins!
-</p -->
+<% @voters.each do |voter| %>
+  
+    <%= voter.email %>
 
-<%= link_to "Create Account", new_voter_path %>
+    <% if voter.id == logged_in_id %>
+
+      <% if voter.vote.nil? %>
+      <%= link_to 'Vote', vote_now_path %><br />
+      <% else %>
+
+        <%= link_to 'See how you voted', voter %><br />
+      <% end %>
+      <% else %> <br>
+    <% end %>
+
+<% end %>
 
 <br />
 
-
+<% if user_signed_in? %>
+  <%= link_to "Candidates", candidates_path %>
+<% end %>

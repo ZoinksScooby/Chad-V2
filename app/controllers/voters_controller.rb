@@ -2,6 +2,20 @@ class VotersController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:index]
 
+  def vote_now
+
+    @voter = current_voter
+
+    @voter.build_vote # this is to let the form assign a vote
+
+    @candidates = Candidate.all
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @voter }
+    end
+  end
+
   # GET /voters
   # GET /voters.json
   def index
