@@ -1,0 +1,37 @@
+<h1>Stats</h1>
+
+<table>
+
+<% totalvotes = @votes.count %>
+
+  <tr>
+    <th align="left">Candidate</th>
+    <th align="right">Votes</th>
+    <th align="right">Percent</th>
+  </tr>
+
+  <% @candidates.each do |candidate| %>
+  <% votecount = @votes.count {|vote| vote.candidate_id == candidate.id } %> 
+
+  <tr>
+    <td><%= candidate.name %></td>
+    <td align="right"><%= votecount %></td>
+    <td align="right"><%= 100 * votecount/totalvotes %>%</td>
+ </tr>
+
+<% end %>
+
+</table>
+</p>
+
+<br />
+
+<p>
+<%= @winner %> wins!
+</p>
+
+<%= link_to "Create Account", new_voter_registration_path %>
+
+<br />
+
+

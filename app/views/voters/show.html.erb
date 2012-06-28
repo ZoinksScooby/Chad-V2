@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @voter.name %>
+</p>
+
+
+<p>
+
+	<b>Vote</b><br>
+
+	<table>
+		<tr><td>Candidate ID: </td><td><%=	@voter.vote.candidate_id %></td></tr>
+
+		<tr><td>Candidate Name: </td><td><%=	@voter.vote.candidate.name %></td></tr>
+
+		<tr><td>Vote time: </td><td><%= @voter.vote.updated_at.asctime %></td></tr>
+	</table>
+
+</p>
+
+<%= link_to 'Edit', edit_voter_path(@voter) %> |
+<%= link_to 'Back', voters_path %>
